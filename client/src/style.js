@@ -9,7 +9,10 @@ export default makeStyles(()=>({
         alignItems: 'center',
       },
       heading: {
-        color: 'rgba(0,183,255, 1)',
+        color: 'teal',
+        fontSize:'20px',
+        textTransform:'uppercase',
+        letterSpacing:'2px'
       },
       image: {
         marginLeft: '15px',
