@@ -20,7 +20,7 @@ const Post = ({ post }) => {
                 <Typography variant="body2">{moment(post.createAt).fromNow()}</Typography>
 
             </div>
-            <div className={classes.overlay}>
+            <div className={classes.overlay2}>
                 <Button style={{ color: 'white' }}
                     size="small"
                     onClick={() => { }}
