@@ -41,6 +41,7 @@ const Form = () => {
                 <TextField name="Tags" variant="outlined" label="tags" fullWidth value={postData.tags}
                     onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
                 />
+               
                 <div className={classes.fileInput}>
                     <FileBase
                         type="file"

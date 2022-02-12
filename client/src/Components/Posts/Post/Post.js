@@ -5,7 +5,7 @@ import ThumbAltIcon from "@material-ui/icons/ThumbUpAlt"
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizeIcon from '@material-ui/icons/MoreHoriz'
 import moment from 'moment'
-const Post = ({ post, }) => {
+const Post = ({ post }) => {
     const classes = useStyles()
 
     return (

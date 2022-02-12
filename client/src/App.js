@@ -9,9 +9,7 @@ import { getPosts } from "./actions/posts";
 const App = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getPosts())
-    }, [dispatch])
+
     return (
         <div>
             <Container maxWidth="lg">
