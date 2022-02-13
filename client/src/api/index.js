@@ -15,3 +15,7 @@ axios.patch(`${url}/${id}`,updatePost)
 
 }
 
+export const deletePost=async(id)=>{
+    axios.delete(`${url}/${id}`)
+
+}

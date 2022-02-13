@@ -1,15 +1,18 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FileBase from 'react-file-base64'
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import useStyles from "./styles"
-import { useDispatch } from "react-redux";
-import {createPost,updatePost} from "../../actions/posts"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { createPost, updatePost } from "../../actions/posts"
 
 
 
-const Form = ({currentId,SetCurrentId}) => {
-    const post=useSelector((state)=>currentId?state.posts.find((p)=>p._id===currentId):null)
+
+const Form = ({ currentId, SetCurrentId }) => {
+    const post = useSelector((state) =>  currentId? state.posts.find((p)=>p._id===currentId) :null) 
+
+
+
     const dispatch = useDispatch()
     const [postData, setPostData] = useState({
         creator: '',
@@ -20,32 +23,44 @@ const Form = ({currentId,SetCurrentId}) => {
 
     })
 
-    useEffect(()=>{
-        if(post) setPostData();
+    useEffect(() => {
+        if (post) setPostData(post);
 
-    },[post])
+
+    }, [post])
     const classes = useStyles();
     const handleSubmit = (e) => {
         e.preventDefault();
-     
 
-        if(currentId){
-            dispatch(updatePost ( currentId, postData))
+
+        if (currentId) {
+            dispatch(updatePost(currentId, postData));
+           
         }
-        else{
+
+        else {
             dispatch(createPost(postData))
+           
         }
-    
+        clear()
+
 
     }
     const clear = () => {
-
+        SetCurrentId(null)
+        setPostData({
+            creator: '',
+            title: '',
+            message: '',
+            tags: '',
+            selectedFile: ''
+        })
     }
     return (
 
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Creating a Memory
+                <Typography variant="h6">{currentId ? 'Updating' : 'Creating'} a Memory
                 </Typography>
                 <TextField name="creator" variant="outlined" label="creator" fullWidth value={postData.creator}
                     onChange={(e) => setPostData({ ...postData, creator: e.target.value })}
@@ -59,7 +74,7 @@ const Form = ({currentId,SetCurrentId}) => {
                 <TextField name="Tags" variant="outlined" label="tags" fullWidth value={postData.tags}
                     onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
                 />
-               
+
                 <div className={classes.fileInput}>
                     <FileBase
                         type="file"
