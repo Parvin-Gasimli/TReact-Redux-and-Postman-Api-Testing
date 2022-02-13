@@ -4,7 +4,7 @@ import useStyles from "./styles"
 import { CircularProgress, Grid } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/posts";
-const Posts = () => {
+const Posts = ({SetCurrentId}) => {
 
     const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const Posts = () => {
                 {
                     posts?.data.map((post) => (
                         <Grid key={post.id} item xs={12} sm={6}>
-                            <Post post={post} />
+                            <Post post={post} SetCurrentId={SetCurrentId} />
                         </Grid>
                     ))
                 }

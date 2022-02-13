@@ -9,3 +9,9 @@ export const createPost= async(newPost)=>{
    await axios.post(url,newPost)
 }
 
+
+export const updatePost =async(id,updatePost)=>{
+axios.patch(`${url}/${id}`,updatePost)
+
+}
+

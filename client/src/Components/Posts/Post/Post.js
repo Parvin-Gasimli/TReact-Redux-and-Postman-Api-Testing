@@ -5,7 +5,7 @@ import ThumbAltIcon from "@material-ui/icons/ThumbUpAlt"
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizeIcon from '@material-ui/icons/MoreHoriz'
 import moment from 'moment'
-const Post = ({ post }) => {
+const Post = ({ post ,SetCurrentId}) => {
     const classes = useStyles()
 
     return (
@@ -37,7 +37,7 @@ const Post = ({ post }) => {
                 <Typography className={classes.title} variant="h5" gutterBottom >{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size='small' color='primary' onClick={() => { }} >
+                <Button size='small' color='primary' onClick={() =>SetCurrentId(post._id)} >
                     <ThumbAltIcon fontSize="small" />
                     like
                     {post.likeCount}

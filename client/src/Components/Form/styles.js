@@ -8,6 +8,8 @@ export default makeStyles((theme) => ({
     },
     paper: {
       padding: theme.spacing(2),
+      background: 'teal',
+      color: 'white',
     },
     form: {
       display: 'flex',
@@ -17,8 +19,14 @@ export default makeStyles((theme) => ({
     fileInput: {
       width: '97%',
       margin: '10px 0',
+      width: '227px',
+      height: '31px',
+      padding: '6px 0px',
+      background: 'white',
+    
     },
     buttonSubmit: {
       marginBottom: 10,
     },
+  
   }));
